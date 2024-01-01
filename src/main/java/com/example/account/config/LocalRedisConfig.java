@@ -9,7 +9,7 @@ import redis.embedded.RedisServer;
 
 @Configuration
 public class LocalRedisConfig {
-    @Value("${spring.redis.port}")
+    @Value("${spring.data.redis.port}")
     private int redisPort;
 
     private RedisServer redisServer;
