@@ -17,12 +17,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-public class Account {  // 테이블 생성
-
-    @Id
-    @GeneratedValue
-    private Long id;
+public class Account extends BaseEntity{  // 테이블 생성
 
     @ManyToOne
     private AccountUser accountUser;
@@ -34,11 +29,6 @@ public class Account {  // 테이블 생성
 
     private LocalDateTime registeredAt;
     private LocalDateTime unRegisteredAt;
-
-    @CreatedDate
-    private LocalDateTime createdAt;
-    @LastModifiedDate
-    private LocalDateTime updatedAt;
 
     public void useBalance(Long amount) {
         if (amount > balance) {
